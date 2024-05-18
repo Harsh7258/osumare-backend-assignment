@@ -3,16 +3,16 @@ const AppError = require("../utils/appError")
 
 let NEW_TASK = []
 
-// function validatePaginationParams(req) {
-//     const { page = 1, limit = 3 } = req.query;
+const validatePaginationParams = (req) =>  {
+    const { page = 1, limit = 3 } = req.query;
   
-//     // Basic validation (can be extended based on your requirements)
-//     if (isNaN(page) || isNaN(limit) || page < 1 || limit < 1) {
-//       throw new AppError('Invalid pagination parameters: page and limit must be positive integers.', 400);
-//     }
+    // Basic validation (can be extended based on your requirements)
+    if (isNaN(page) || isNaN(limit) || page < 1 || limit < 1) {
+      throw new AppError('Invalid pagination parameters: page and limit must be positive integers.', 400);
+    }
   
-//     return { page, limit };
-// }
+    return { page, limit };
+}
 
 const getAllTask = (req, res) => {
     if (NEW_TASK.length === 0) {
